@@ -64,6 +64,8 @@ export default class GameScene extends Phaser.Scene {
         });
 
         this._initDebugUI();
+
+        this.ui = new UI(this);
     }
 
     update () {

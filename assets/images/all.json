@@ -4,8 +4,8 @@
 			"image": "all.png",
 			"format": "RGBA8888",
 			"size": {
-				"w": 176,
-				"h": 176
+				"w": 177,
+				"h": 177
 			},
 			"scale": 1,
 			"frames": [
@@ -45,31 +45,10 @@
 						"h": 50
 					},
 					"frame": {
-						"x": 58,
-						"y": 4,
+						"x": 4,
+						"y": 59,
 						"w": 49,
 						"h": 50
-					}
-				},
-				{
-					"filename": "furniture/hazmat_wardrobe",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 17,
-						"h": 44
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 17,
-						"h": 44
-					},
-					"frame": {
-						"x": 112,
-						"y": 4,
-						"w": 17,
-						"h": 44
 					}
 				},
 				{
@@ -87,8 +66,8 @@
 						"h": 35
 					},
 					"frame": {
-						"x": 112,
-						"y": 53,
+						"x": 58,
+						"y": 4,
 						"w": 27,
 						"h": 35
 					}
@@ -108,31 +87,10 @@
 						"h": 35
 					},
 					"frame": {
-						"x": 134,
-						"y": 4,
+						"x": 4,
+						"y": 114,
 						"w": 27,
 						"h": 35
-					}
-				},
-				{
-					"filename": "trigger",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 1,
-						"h": 1
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 1,
-						"h": 1
-					},
-					"frame": {
-						"x": 134,
-						"y": 44,
-						"w": 1,
-						"h": 1
 					}
 				},
 				{
@@ -150,8 +108,8 @@
 						"h": 35
 					},
 					"frame": {
-						"x": 4,
-						"y": 59,
+						"x": 58,
+						"y": 44,
 						"w": 27,
 						"h": 35
 					}
@@ -171,52 +129,10 @@
 						"h": 35
 					},
 					"frame": {
-						"x": 36,
-						"y": 59,
+						"x": 90,
+						"y": 4,
 						"w": 27,
 						"h": 35
-					}
-				},
-				{
-					"filename": "furniture/coal1",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 30,
-						"h": 29
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 30,
-						"h": 29
-					},
-					"frame": {
-						"x": 68,
-						"y": 93,
-						"w": 30,
-						"h": 29
-					}
-				},
-				{
-					"filename": "furniture/coal2",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 30,
-						"h": 29
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 1,
-						"w": 30,
-						"h": 28
-					},
-					"frame": {
-						"x": 68,
-						"y": 59,
-						"w": 30,
-						"h": 28
 					}
 				},
 				{
@@ -234,8 +150,8 @@
 						"h": 35
 					},
 					"frame": {
-						"x": 4,
-						"y": 99,
+						"x": 90,
+						"y": 44,
 						"w": 27,
 						"h": 35
 					}
@@ -255,8 +171,8 @@
 						"h": 35
 					},
 					"frame": {
-						"x": 36,
-						"y": 99,
+						"x": 122,
+						"y": 4,
 						"w": 27,
 						"h": 35
 					}
@@ -276,10 +192,73 @@
 						"h": 35
 					},
 					"frame": {
-						"x": 103,
-						"y": 93,
+						"x": 122,
+						"y": 44,
 						"w": 27,
 						"h": 35
+					}
+				},
+				{
+					"filename": "furniture/hazmat_wardrobe",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 17,
+						"h": 44
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 17,
+						"h": 44
+					},
+					"frame": {
+						"x": 154,
+						"y": 4,
+						"w": 17,
+						"h": 44
+					}
+				},
+				{
+					"filename": "furniture/coal1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 30,
+						"h": 29
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 30,
+						"h": 29
+					},
+					"frame": {
+						"x": 58,
+						"y": 84,
+						"w": 30,
+						"h": 29
+					}
+				},
+				{
+					"filename": "furniture/coal2",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 30,
+						"h": 29
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 1,
+						"w": 30,
+						"h": 28
+					},
+					"frame": {
+						"x": 93,
+						"y": 84,
+						"w": 30,
+						"h": 28
 					}
 				},
 				{
@@ -297,73 +276,10 @@
 						"h": 35
 					},
 					"frame": {
-						"x": 68,
-						"y": 127,
+						"x": 128,
+						"y": 84,
 						"w": 27,
 						"h": 35
-					}
-				},
-				{
-					"filename": "furniture/coal3",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 30,
-						"h": 29
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 4,
-						"w": 30,
-						"h": 25
-					},
-					"frame": {
-						"x": 4,
-						"y": 139,
-						"w": 30,
-						"h": 25
-					}
-				},
-				{
-					"filename": "characters/man1_right_stay",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 9,
-						"h": 28
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 9,
-						"h": 28
-					},
-					"frame": {
-						"x": 39,
-						"y": 139,
-						"w": 9,
-						"h": 28
-					}
-				},
-				{
-					"filename": "characters/man2_right_stay",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 9,
-						"h": 28
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 9,
-						"h": 28
-					},
-					"frame": {
-						"x": 53,
-						"y": 139,
-						"w": 9,
-						"h": 28
 					}
 				},
 				{
@@ -381,10 +297,52 @@
 						"h": 14
 					},
 					"frame": {
-						"x": 100,
-						"y": 133,
+						"x": 4,
+						"y": 154,
 						"w": 30,
 						"h": 14
+					}
+				},
+				{
+					"filename": "characters/man1_right_stay",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 9,
+						"h": 28
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 9,
+						"h": 28
+					},
+					"frame": {
+						"x": 36,
+						"y": 114,
+						"w": 9,
+						"h": 28
+					}
+				},
+				{
+					"filename": "furniture/coal3",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 30,
+						"h": 29
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 4,
+						"w": 30,
+						"h": 25
+					},
+					"frame": {
+						"x": 50,
+						"y": 118,
+						"w": 30,
+						"h": 25
 					}
 				},
 				{
@@ -402,94 +360,10 @@
 						"h": 13
 					},
 					"frame": {
-						"x": 100,
-						"y": 152,
+						"x": 93,
+						"y": 117,
 						"w": 30,
 						"h": 13
-					}
-				},
-				{
-					"filename": "furniture/libraryEmpty",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 27,
-						"h": 35
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 27,
-						"h": 35
-					},
-					"frame": {
-						"x": 135,
-						"y": 93,
-						"w": 27,
-						"h": 35
-					}
-				},
-				{
-					"filename": "characters/woman1_right_stay",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 9,
-						"h": 28
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 9,
-						"h": 28
-					},
-					"frame": {
-						"x": 144,
-						"y": 44,
-						"w": 9,
-						"h": 28
-					}
-				},
-				{
-					"filename": "furniture/table",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 23,
-						"h": 10
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 23,
-						"h": 10
-					},
-					"frame": {
-						"x": 144,
-						"y": 77,
-						"w": 23,
-						"h": 10
-					}
-				},
-				{
-					"filename": "characters/man3_right_stay",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 9,
-						"h": 27
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 9,
-						"h": 27
-					},
-					"frame": {
-						"x": 158,
-						"y": 44,
-						"w": 9,
-						"h": 27
 					}
 				},
 				{
@@ -507,31 +381,10 @@
 						"h": 13
 					},
 					"frame": {
-						"x": 135,
-						"y": 133,
+						"x": 128,
+						"y": 124,
 						"w": 30,
 						"h": 13
-					}
-				},
-				{
-					"filename": "furniture/small_table",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 18,
-						"h": 10
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 18,
-						"h": 10
-					},
-					"frame": {
-						"x": 135,
-						"y": 151,
-						"w": 18,
-						"h": 10
 					}
 				},
 				{
@@ -549,31 +402,94 @@
 						"h": 20
 					},
 					"frame": {
-						"x": 158,
-						"y": 151,
+						"x": 154,
+						"y": 53,
 						"w": 9,
 						"h": 20
 					}
 				},
 				{
-					"filename": "items/coalPiece",
+					"filename": "furniture/libraryEmpty",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 6,
-						"h": 6
+						"w": 27,
+						"h": 35
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 6,
-						"h": 6
+						"w": 27,
+						"h": 35
 					},
 					"frame": {
-						"x": 135,
-						"y": 166,
-						"w": 6,
-						"h": 6
+						"x": 85,
+						"y": 135,
+						"w": 27,
+						"h": 35
+					}
+				},
+				{
+					"filename": "characters/man2_right_stay",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 9,
+						"h": 28
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 9,
+						"h": 28
+					},
+					"frame": {
+						"x": 117,
+						"y": 142,
+						"w": 9,
+						"h": 28
+					}
+				},
+				{
+					"filename": "characters/woman1_right_stay",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 9,
+						"h": 28
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 9,
+						"h": 28
+					},
+					"frame": {
+						"x": 131,
+						"y": 142,
+						"w": 9,
+						"h": 28
+					}
+				},
+				{
+					"filename": "characters/man3_right_stay",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 9,
+						"h": 27
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 9,
+						"h": 27
+					},
+					"frame": {
+						"x": 145,
+						"y": 142,
+						"w": 9,
+						"h": 27
 					}
 				},
 				{
@@ -591,9 +507,198 @@
 						"h": 6
 					},
 					"frame": {
-						"x": 146,
-						"y": 166,
+						"x": 168,
+						"y": 53,
 						"w": 5,
+						"h": 6
+					}
+				},
+				{
+					"filename": "furniture/table",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 23,
+						"h": 10
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 23,
+						"h": 10
+					},
+					"frame": {
+						"x": 39,
+						"y": 148,
+						"w": 23,
+						"h": 10
+					}
+				},
+				{
+					"filename": "furniture/small_table",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 18,
+						"h": 10
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 18,
+						"h": 10
+					},
+					"frame": {
+						"x": 39,
+						"y": 163,
+						"w": 18,
+						"h": 10
+					}
+				},
+				{
+					"filename": "heads/brother",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 9,
+						"h": 8
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 9,
+						"h": 8
+					},
+					"frame": {
+						"x": 67,
+						"y": 148,
+						"w": 9,
+						"h": 8
+					}
+				},
+				{
+					"filename": "heads/father",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 9,
+						"h": 8
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 9,
+						"h": 8
+					},
+					"frame": {
+						"x": 62,
+						"y": 163,
+						"w": 9,
+						"h": 8
+					}
+				},
+				{
+					"filename": "trigger",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 1,
+						"h": 1
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 1,
+						"h": 1
+					},
+					"frame": {
+						"x": 154,
+						"y": 78,
+						"w": 1,
+						"h": 1
+					}
+				},
+				{
+					"filename": "heads/son",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 9,
+						"h": 8
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 9,
+						"h": 8
+					},
+					"frame": {
+						"x": 160,
+						"y": 78,
+						"w": 9,
+						"h": 8
+					}
+				},
+				{
+					"filename": "heads/wife",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 9,
+						"h": 8
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 9,
+						"h": 8
+					},
+					"frame": {
+						"x": 160,
+						"y": 91,
+						"w": 9,
+						"h": 8
+					}
+				},
+				{
+					"filename": "heads/you",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 9,
+						"h": 8
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 9,
+						"h": 8
+					},
+					"frame": {
+						"x": 160,
+						"y": 104,
+						"w": 9,
+						"h": 8
+					}
+				},
+				{
+					"filename": "items/coalPiece",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 6,
+						"h": 6
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 6,
+						"h": 6
+					},
+					"frame": {
+						"x": 159,
+						"y": 142,
+						"w": 6,
 						"h": 6
 					}
 				}
@@ -603,6 +708,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:b91b7194694342917628baea615965c8:512722419c72c026d499d4140d2fdb69:a197e4af6df39e24789baf29ba373b2c$"
+		"smartupdate": "$TexturePacker:SmartUpdate:fce702371495b7cfc32ad6ffa811f9ed:611623c35541c2ab547b068840c362cf:a197e4af6df39e24789baf29ba373b2c$"
 	}
 }

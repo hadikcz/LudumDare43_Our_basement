@@ -72,6 +72,7 @@ export default class TemperatureSystem {
         if (this._temperature > GameConfig.Temperature.LimitMax) {
             this._temperature = GameConfig.Temperature.LimitMax;
         }
+        this.scene.events.emit('changedTemperature', this._temperature.toFixed(1));
     }
 
 }

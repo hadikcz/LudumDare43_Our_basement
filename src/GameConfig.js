@@ -11,6 +11,9 @@ export default {
         firstLevelY: 163,
         secondLevelY: 218
     },
+    Boiler: {
+        maxCapacity: 50
+    },
     DepthLayers: {
         Surface: 1,
         Furniture: 4,

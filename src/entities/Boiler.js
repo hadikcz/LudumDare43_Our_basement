@@ -2,6 +2,7 @@ import GameScene from '../scenes/GameScene.js';
 import GameItem from './GameItem';
 import Phaser from "phaser";
 import CameraHelpers from "../helpers/CameraHelpers";
+import GameConfig from "../GameConfig";
 
 export default class Boiler extends GameItem {
     /**
@@ -56,7 +57,6 @@ export default class Boiler extends GameItem {
         this.boilerLoopSound = this.scene.sound.add('boilerLoop', {loop: true});
         this.boilerLoopSound.play();
 
-
         /**
          * @type {Phaser.Sound.HTML5AudioSound}
          */
@@ -107,9 +107,15 @@ export default class Boiler extends GameItem {
             }
         }
 
+        if (this._fuel > GameConfig.Boiler.maxCapacity) {
+            this._fuel = GameConfig.Boiler.maxCapacity;
+        }
+
         if (this._fuel > 0 && !this._isFiring) {
             this.startFire();
         }
+        let percent = Math.round((this._fuel / GameConfig.Boiler.maxCapacity) * 100);
+        this.scene.events.emit('boilerTick', percent);
     }
 
     startFire () {

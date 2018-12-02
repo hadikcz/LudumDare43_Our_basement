@@ -267,7 +267,15 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">all/furniture/library.png</key>
+            <key type="filename">all/furniture/library1.png</key>
+            <key type="filename">all/furniture/library2.png</key>
+            <key type="filename">all/furniture/library3.png</key>
+            <key type="filename">all/furniture/library4.png</key>
+            <key type="filename">all/furniture/library5.png</key>
+            <key type="filename">all/furniture/library6.png</key>
+            <key type="filename">all/furniture/library7.png</key>
+            <key type="filename">all/furniture/library8.png</key>
+            <key type="filename">all/furniture/libraryEmpty.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -306,6 +314,24 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">all/heads/brother.png</key>
+            <key type="filename">all/heads/father.png</key>
+            <key type="filename">all/heads/son.png</key>
+            <key type="filename">all/heads/wife.png</key>
+            <key type="filename">all/heads/you.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>2,2,5,4</rect>
+                <key>scale9Paddings</key>
+                <rect>2,2,5,4</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">all/items/book.png</key>
             <key type="filename">all/items/coalPiece.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>

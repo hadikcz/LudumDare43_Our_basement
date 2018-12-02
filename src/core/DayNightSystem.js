@@ -25,6 +25,11 @@ export default class DayNightSystem {
         });
 
         /**
+         * @type {number}
+         */
+        this.day = 431;
+
+        /**
          * @type {Phaser.Sound.BaseSound}
          */
         this.nightAmbient = this.scene.sound.add('nightAmbient');
@@ -59,15 +64,15 @@ export default class DayNightSystem {
      * @private
      */
     _update () {
-        console.log(this._currentTime);
         this._currentTime += 0.1;
         this._currentTime = parseFloat(this._currentTime.toFixed(1));
         if (this._currentTime > 24) {
             this._currentTime = 0;
+            this.day++;
+            this.scene.events.emit('changeDay', this.day);
         }
 
         if (this._currentTime === GameConfig.DayNight.SunriseStartTime) {
-            console.log('startSunrise dayNight');
             this.scene.events.emit('startSunrise');
             this.nightAmbient.stop();
         }
@@ -78,7 +83,6 @@ export default class DayNightSystem {
 
         if (this._currentTime === GameConfig.DayNight.SunsetStartTime) {
             this.scene.events.emit('startSunset');
-            console.log('startSunset dayNight');
             this.nightAmbient.play();
             this.sunsetSound.play();
         }
