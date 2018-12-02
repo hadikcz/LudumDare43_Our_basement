@@ -1,0 +1,230 @@
+{
+	"textures": [
+		{
+			"image": "all.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 100,
+				"h": 100
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "furniture/boiler",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 57,
+						"h": 50
+					},
+					"spriteSourceSize": {
+						"x": 8,
+						"y": 0,
+						"w": 49,
+						"h": 50
+					},
+					"frame": {
+						"x": 4,
+						"y": 4,
+						"w": 49,
+						"h": 50
+					}
+				},
+				{
+					"filename": "furniture/library",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 27,
+						"h": 35
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 27,
+						"h": 35
+					},
+					"frame": {
+						"x": 4,
+						"y": 59,
+						"w": 27,
+						"h": 35
+					}
+				},
+				{
+					"filename": "characters/man1_right_stay",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 9,
+						"h": 28
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 9,
+						"h": 28
+					},
+					"frame": {
+						"x": 36,
+						"y": 59,
+						"w": 9,
+						"h": 28
+					}
+				},
+				{
+					"filename": "characters/man2_right_stay",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 9,
+						"h": 28
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 9,
+						"h": 28
+					},
+					"frame": {
+						"x": 50,
+						"y": 59,
+						"w": 9,
+						"h": 28
+					}
+				},
+				{
+					"filename": "furniture/hazmat_wardrobe",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 17,
+						"h": 44
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 17,
+						"h": 44
+					},
+					"frame": {
+						"x": 58,
+						"y": 4,
+						"w": 17,
+						"h": 44
+					}
+				},
+				{
+					"filename": "characters/woman1_right_stay",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 9,
+						"h": 28
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 9,
+						"h": 28
+					},
+					"frame": {
+						"x": 80,
+						"y": 4,
+						"w": 9,
+						"h": 28
+					}
+				},
+				{
+					"filename": "characters/man3_right_stay",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 9,
+						"h": 27
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 9,
+						"h": 27
+					},
+					"frame": {
+						"x": 80,
+						"y": 37,
+						"w": 9,
+						"h": 27
+					}
+				},
+				{
+					"filename": "characters/child1_right_stay",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 9,
+						"h": 20
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 9,
+						"h": 20
+					},
+					"frame": {
+						"x": 64,
+						"y": 53,
+						"w": 9,
+						"h": 20
+					}
+				},
+				{
+					"filename": "furniture/small_table",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 18,
+						"h": 10
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 18,
+						"h": 10
+					},
+					"frame": {
+						"x": 78,
+						"y": 69,
+						"w": 18,
+						"h": 10
+					}
+				},
+				{
+					"filename": "furniture/table",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 23,
+						"h": 10
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 23,
+						"h": 10
+					},
+					"frame": {
+						"x": 64,
+						"y": 84,
+						"w": 23,
+						"h": 10
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:358efbb4cb64db8b4b768c56f5df4824:098b375d4706098296533d20009485e5:a197e4af6df39e24789baf29ba373b2c$"
+	}
+}
