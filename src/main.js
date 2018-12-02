@@ -5,7 +5,7 @@ import GameScene from './scenes/GameScene';
 import GameConfig from './GameConfig.js';
 
 const config = {
-    type: Phaser.AUTO,
+    type: Phaser.CANVAS,
     pixelArt: true,
     roundPixels: true,
     parent: 'content',
@@ -18,7 +18,7 @@ const config = {
     physics: {
         default: 'arcade',
         arcade: {
-            debug: true
+            debug: false
         }
     },
     antialias: true,

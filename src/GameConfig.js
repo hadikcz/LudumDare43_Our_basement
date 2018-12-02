@@ -10,5 +10,11 @@ export default {
         surface: 62,
         firstLevelY: 149,
         secondLevelY: 204
+    },
+    DepthLayers: {
+        Surface: 1,
+        Lights: 10,
+        UpOnLights: 11,
+        Night: 12
     }
 };
