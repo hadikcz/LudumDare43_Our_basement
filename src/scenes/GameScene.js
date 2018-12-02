@@ -52,13 +52,11 @@ export default class GameScene extends Phaser.Scene {
          * @private
          */
         // this._night = new NightLight(this, 1, 1);
-        this._initDebugUI();
 
         // draw object
-        return;
-        this.dragTarget = this.lightSystem._night;
+        this.dragTarget = this.gameEnvironment.furniture;
         this.physics.world.enable(this.dragTarget);
-        this.input.setDraggable(this.dragTarget .setInteractive());
+        this.input.setDraggable(this.dragTarget.setInteractive());
         this.input.on('dragstart', function (pointer, obj) {
             obj.body.moves = false;
         });
@@ -70,6 +68,7 @@ export default class GameScene extends Phaser.Scene {
         this.input.on('dragend', function (pointer, obj) {
             obj.body.moves = true;
         });
+        this._initDebugUI();
     }
 
     update () {
@@ -91,8 +90,8 @@ export default class GameScene extends Phaser.Scene {
 
         if (this.dragTarget !== undefined) {
             var f2 = this.debugGui.addFolder('Selcted');
-            f2.add(this.gameEnvironment._boiler, 'x').step(1).listen();
-            f2.add(this.gameEnvironment._boiler, 'y').step(1).listen();
+            f2.add(this.dragTarget, 'x').step(1).listen();
+            f2.add(this.dragTarget, 'y').step(1).listen();
             f2.open();
         }
     }

@@ -29,6 +29,8 @@ export default class GameEnvironment {
         this._boiler = new Boiler(this.scene, 286, 137);
 
         this._createColliders();
+
+        this._createFurniture();
     }
 
     update () {
@@ -50,5 +52,13 @@ export default class GameEnvironment {
         rect.body.setImmovable(true);
         rect.body.setSize(16, 250);
         this._walls.add(rect);
+    }
+
+    _createFurniture () {
+        this.furniture = this.scene.add.image(0, 0, 'all', 'furniture/table');
+        this.scene.add.image(135, 157, 'all', 'furniture/table');
+        this.scene.add.image(113, 157, 'all', 'furniture/small_table');
+        this.scene.add.image(90, 145, 'all', 'furniture/library');
+        this.scene.add.image(65, 140, 'all', 'furniture/hazmat_wardrobe');
     }
 }
