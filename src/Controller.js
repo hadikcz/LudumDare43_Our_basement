@@ -27,17 +27,15 @@ export default class Controller {
             right2: this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D),
             down: this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN),
             down2: this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S),
-            action: this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE)
+            action: this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE),
+            action2: this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E)
         };
+
+        this._lockInteract = false;
     }
 
     update () {
-        if (this.keys.up || this.keys.up2) {
-            // try walk up to up ladder
-        }
-        if (this.keys.down || this.keys.down2) {
-            // try walk up to down ladder
-        }
+        if (this._targetCharacterToControl._lockControlls) return;
 
         if (this.keys.left.isDown || this.keys.left2.isDown) {
             this._targetCharacterToControl.walk(-this._targetCharacterToControl.acceleration, 'left');
@@ -46,6 +44,18 @@ export default class Controller {
         } else {
             // this._targetCharacterToControl.body.setVelocity(0, 0);
             this._targetCharacterToControl.walk(0);
+        }
+
+        if (this.keys.action.isDown || this.keys.action2.isDown) {
+            if (!this._lockInteract) {
+                this.scene.events.emit('interact');
+                this._lockInteract = true;
+                setTimeout(() => {
+                    try {
+                        this._lockInteract = false;
+                    } catch (e) {console.log(e);}
+                }, 200);
+            }
         }
     }
 }

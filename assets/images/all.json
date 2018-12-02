@@ -220,6 +220,27 @@
 					}
 				},
 				{
+					"filename": "trigger",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 1,
+						"h": 1
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 1,
+						"h": 1
+					},
+					"frame": {
+						"x": 86,
+						"y": 86,
+						"w": 1,
+						"h": 1
+					}
+				},
+				{
 					"filename": "furniture/small_table",
 					"rotated": false,
 					"trimmed": false,
@@ -246,6 +267,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:2842349beeec3f9ad14aaa107acba76b:ecc9d10dc93b2211f52e7a35bc012998:a197e4af6df39e24789baf29ba373b2c$"
+		"smartupdate": "$TexturePacker:SmartUpdate:b5923cd75f5d6122fafef0d055b7fcc9:9a2861839679b1e35b0aad31abef6876:a197e4af6df39e24789baf29ba373b2c$"
 	}
 }

@@ -223,6 +223,7 @@
                 <false/>
             </struct>
             <key type="filename">all/furniture/boiler.png</key>
+            <key type="filename">all/furniture/boiler_cold.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -284,6 +285,19 @@
                 <rect>6,3,11,5</rect>
                 <key>scale9Paddings</key>
                 <rect>6,3,11,5</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">all/trigger.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>0,0,1,1</rect>
+                <key>scale9Paddings</key>
+                <rect>0,0,1,1</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
