@@ -50,6 +50,13 @@ export default class Boiler extends GameItem {
         });
     }
 
+    /**
+     * @return {boolean}
+     */
+    isFiring () {
+        return this._isFiring;
+    }
+
     preUpdate () {
         if (this._isFiring) {
             this.setFrame('furniture/boiler');

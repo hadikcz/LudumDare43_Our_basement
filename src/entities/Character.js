@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 import GameScene from './../scenes/GameScene';
 import GameConfig from "../GameConfig";
 import Trigger from './Trigger';
+import TemperatureSystem from './../core/TemperatureSystem';
 
 export default class Character extends Phaser.GameObjects.Sprite {
     /**
@@ -44,6 +45,11 @@ export default class Character extends Phaser.GameObjects.Sprite {
         this.characterId = characterId;
 
         /**
+         * @type {TemperatureSystem}
+         */
+        this.temperatureSystem = this.scene.temperatureSystem;
+
+        /**
          * @type {string}
          * @private
          */
@@ -79,6 +85,18 @@ export default class Character extends Phaser.GameObjects.Sprite {
          */
         this._lockControlls = false;
 
+        /**
+         * @type {number}
+         * @private
+         */
+        this._health = GameConfig.Characters.MaxHealth;
+
+        /**
+         * @type {boolean}
+         * @private
+         */
+        this._inside = true;
+
         this._overHeadText = this.scene.add.text(this.x, this.y, 'Matrix has you', { fontFamily: 'Verdana, Arial', fontSize: 25, color: '#FFFFFF' }); // '#FF0000'
         this._overHeadText.setOrigin(0.5, 5);
         this._overHeadText.setDepth(GameConfig.DepthLayers.Text);
@@ -92,6 +110,13 @@ export default class Character extends Phaser.GameObjects.Sprite {
             if (!this._currentNearestItem) return;
             if (this._interactLock) return;
             this._handleInteract();
+        });
+
+        this.scene.time.addEvent({
+            delay: 1500,
+            loop: true,
+            callbackScope: this,
+            callback: this._handleHealth
         });
     }
 
@@ -131,6 +156,21 @@ export default class Character extends Phaser.GameObjects.Sprite {
                 this._directionFacing = direction;
                 this._redrawFacing();
             }
+        }
+    }
+
+    _handleHealth () {
+        if (this._inside) {
+            if (this.temperatureSystem.getTemperature() <= GameConfig.Temperature.LowestPointForTakeHealth) {
+                this._health += (this.temperatureSystem.getTemperature() - 13) / 10;
+            } else {
+                this._health += this.temperatureSystem.getTemperature() / 10;
+            }
+        } else {
+            this._health -= 5; // if day + check hazmat
+        }
+        if (this._health > GameConfig.Characters.MaxHealth) {
+            this._health = GameConfig.Characters.MaxHealth;
         }
     }
 
@@ -207,12 +247,14 @@ export default class Character extends Phaser.GameObjects.Sprite {
                 onComplete: () => {
                     this._interactLock = false;
                     this._lockControlls = false;
+                    this._inside = false;
                 }
             });
         }
         if (trigger.getTriggerName() === 'returnToShelter') {
             this._interactLock = true;
             this._lockControlls = true;
+            this._inside = true;
             this.scene.tweens.add({
                 targets: this,
                 y: GameConfig.World.firstLevelY,
@@ -221,6 +263,7 @@ export default class Character extends Phaser.GameObjects.Sprite {
                 onComplete: () => {
                     this._interactLock = false;
                     this._lockControlls = false;
+                    this._inside = true;
                 }
             });
         }

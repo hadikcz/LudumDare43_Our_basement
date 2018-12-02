@@ -10,6 +10,7 @@ import GameEnvironment from '../core/GameEnvironment';
 import LightSystem from './../core/lights/LightSystem';
 import UI from './../ui/UI';
 import NightLight from "../core/lights/NightLight";
+import TemperatureSystem from './../core/TemperatureSystem';
 
 export default class GameScene extends Phaser.Scene {
     constructor () {
@@ -39,9 +40,10 @@ export default class GameScene extends Phaser.Scene {
 
         this.gameEnvironment = new GameEnvironment(this);
 
+        this.temperatureSystem = new TemperatureSystem(this);
+
         this.character = new Character(this, 91, GameConfig.World.firstLevelY, 'man1');
         this.currentCharacter = this.character;
-
 
         // let light = this.add.image(92, 123, 'light');
         // light.setBlendMode(Phaser.BlendModes.LIGHTEN);
@@ -68,6 +70,8 @@ export default class GameScene extends Phaser.Scene {
         this.input.on('dragend', function (pointer, obj) {
             obj.body.moves = true;
         });
+
+
         this._initDebugUI();
     }
 
@@ -88,6 +92,14 @@ export default class GameScene extends Phaser.Scene {
         f11.add(this.gameEnvironment._boiler, '_isFiring').listen();
         f11.add(this.gameEnvironment._boiler, '_fuel').listen();
         f11.open();
+
+        var f12 = this.debugGui.addFolder('Temperature');
+        f12.add(this.temperatureSystem, '_temperature').listen();
+        f12.open();
+
+        var f13 = this.debugGui.addFolder('Player health');
+        f13.add(this.character, '_health').listen();
+        f13.open();
 
         if (this.dragTarget !== undefined) {
             var f2 = this.debugGui.addFolder('Selcted');

@@ -21,5 +21,16 @@ export default {
         Night: 12,
         Text: 50
     },
+    Temperature: {
+        LowestDay: -15,
+        LowestNight: -40,
+        LimitMax: 27,
+        TempatureStepDay: 0.05,
+        TempatureStepNight: 0.15,
+        LowestPointForTakeHealth: 12
+    },
+    Characters: {
+        MaxHealth: 150
+    },
     MinimalInteractiveDistance: 10
 };
