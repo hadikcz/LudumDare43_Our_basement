@@ -17,6 +17,16 @@ export default class GameItem extends Phaser.GameObjects.Image {
         /**
          * @type {string}
          */
+        this.spriteKey = key;
+
+        /**
+         * @type {number[]}
+         */
+        this.sprites = config.sprites;
+
+        /**
+         * @type {string}
+         */
         this.name = config.name ? config.name : '';
 
         /**
@@ -24,15 +34,55 @@ export default class GameItem extends Phaser.GameObjects.Image {
          */
         this.actionName = config.actionName ? config.actionName : 'invalid action';
 
+        this.emptyActionName = config.emptyActionName ? config.emptyActionName : 'Empty';
+
         /**
          * @type {boolean}
          */
         this.isPickable = config.isPickable ? config.isPickable : false;
 
-        this.canTakePiece = config.canTakePiece ? config.canTakePiece : false;
+        /**
+         * @type {boolean}
+         */
+        this._canTakePiece = config.canTakePiece ? config.canTakePiece : false;
+
+        /**
+         * @type {number}
+         */
+        this._pieces = config.pieces ? config.pieces : 0;
+        /**
+         * @type {number}
+         */
+        this._totalPieces = config.pieces ? config.pieces : 0;
+
+        /**
+         * @type {string}
+         */
+        this.generatePieceName = config.generatePieceName ? config.generatePieceName : false;
     }
 
+    /**
+     * @return {boolean}
+     */
     canBurnUp () {
+        return false;
+    }
+
+    /**
+     * @return {boolean}
+     */
+    canTakePiece () {
+        return this._pieces > 0;
+    }
+
+    /**
+     * @return {boolean}
+     */
+    takePiece () {
+        if (this.canTakePiece()) {
+            this._pieces--;
+            return true;
+        }
         return false;
     }
 }

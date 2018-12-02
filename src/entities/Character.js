@@ -97,14 +97,21 @@ export default class Character extends Phaser.GameObjects.Sprite {
 
     preUpdate () {
         if (this._isControllerByPlayer) {
+            this._overHeadText.setVisible(true);
             let nearestPickableItem = this.scene.gameEnvironment.findNearestInteractiveItem();
             if (nearestPickableItem) {
-                this._overHeadText.setText(nearestPickableItem.actionName + ' ' + nearestPickableItem.name);
+                if (nearestPickableItem._totalPieces && !nearestPickableItem.canTakePiece()) {
+                    this._overHeadText.setText(nearestPickableItem.emptyActionName);
+                } else {
+                    this._overHeadText.setText(nearestPickableItem.actionName + ' ' + nearestPickableItem.name);
+                }
             } else {
                 this._overHeadText.setText('');
             }
 
             this._currentNearestItem = nearestPickableItem;
+        } else {
+            this._overHeadText.setVisible(false);
         }
 
         if (this._pickedItem) {
@@ -141,8 +148,15 @@ export default class Character extends Phaser.GameObjects.Sprite {
         if (this._currentNearestItem.constructor.name === 'Boiler') {
             this._currentNearestItem.toggleFire();
         }
+        if (this._currentNearestItem.constructor.name === 'FurnitureWithPieaces') {
+            if (this._currentNearestItem.canTakePiece()) {
+                this._takePiece(this._currentNearestItem);
+            } else if (this._currentNearestItem.isPickable) {
+                this._pickUp(this._currentNearestItem);
+            }
+        }
 
-        if (this._currentNearestItem.constructor.name === 'Furniture') {
+        if (this._currentNearestItem.constructor.name === 'Furniture' && this._currentNearestItem.isPickable) {
             this._pickUp(this._currentNearestItem);
         }
 
@@ -218,6 +232,17 @@ export default class Character extends Phaser.GameObjects.Sprite {
         if (gameItem.canPickUp() && !this._pickedItem) {
             this._pickedItem = gameItem;
             this._pickedItem.pickUp();
+        }
+    }
+
+    _takePiece (gameItem) {
+        console.log('Try take piece ' + gameItem.name);
+        if (gameItem.canTakePiece() && !this._pickedItem) {
+            if (gameItem.generatePieceName && gameItem.takePiece()) {
+                console.log('Piece taken');
+                this._pickedItem = this.scene.gameEnvironment.generatePieceOf(this.x, this.y, gameItem.generatePieceName);
+                this._pickedItem.pickUp();
+            }
         }
     }
 

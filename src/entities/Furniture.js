@@ -34,10 +34,6 @@ export default class Furniture extends GameItem {
         return !this._isPickedUp && this.isPickable;
     }
 
-    canTakePiece () {
-        // return thi
-    }
-
     pickUp () {
         this._isPickedUp = true;
         this.setDepth(GameConfig.DepthLayers.PickedFurniture);

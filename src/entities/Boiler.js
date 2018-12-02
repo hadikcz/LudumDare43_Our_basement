@@ -43,7 +43,7 @@ export default class Boiler extends GameItem {
         });
 
         this.scene.time.addEvent({
-            delay: 3000,
+            delay: 1500,
             loop: true,
             callbackScope: this,
             callback: this._boilerTick
@@ -68,7 +68,6 @@ export default class Boiler extends GameItem {
         if (nearestFuel) {
             this._fuel += nearestFuel.fuel;
             this._boilerTick(true);
-            console.log('Burn ' + nearestFuel.name + ' with fuel '+ nearestFuel.fuel);
             nearestFuel.destroy(); // in object create custom destroy method for clean self form that array. or use group
         }
     }

@@ -236,6 +236,24 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">all/furniture/coal1.png</key>
+            <key type="filename">all/furniture/coal2.png</key>
+            <key type="filename">all/furniture/coal3.png</key>
+            <key type="filename">all/furniture/coal4.png</key>
+            <key type="filename">all/furniture/coal5.png</key>
+            <key type="filename">all/furniture/coalEmpty.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>8,7,15,15</rect>
+                <key>scale9Paddings</key>
+                <rect>8,7,15,15</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">all/furniture/hazmat_wardrobe.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -285,6 +303,19 @@
                 <rect>6,3,11,5</rect>
                 <key>scale9Paddings</key>
                 <rect>6,3,11,5</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">all/items/coalPiece.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>2,2,3,3</rect>
+                <key>scale9Paddings</key>
+                <rect>2,2,3,3</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>

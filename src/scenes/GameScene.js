@@ -34,12 +34,12 @@ export default class GameScene extends Phaser.Scene {
 
         this.lightSystem = new LightSystem(this);
 
-        let bg = this.add.image(0, 0, 'bg');
+        let bg = this.add.image(1, 1, 'bg');
         bg.setOrigin(0, 0);
 
         this.gameEnvironment = new GameEnvironment(this);
 
-        this.character = new Character(this, 37, GameConfig.World.firstLevelY, 'man1');
+        this.character = new Character(this, 91, GameConfig.World.firstLevelY, 'man1');
         this.currentCharacter = this.character;
 
 
@@ -54,7 +54,7 @@ export default class GameScene extends Phaser.Scene {
         // this._night = new NightLight(this, 1, 1);
 
         // draw object
-        this.dragTarget = this.gameEnvironment._walls.getChildren()[2];
+        this.dragTarget = this.gameEnvironment.library;
         this.physics.world.enable(this.dragTarget);
         this.input.setDraggable(this.dragTarget.setInteractive());
         this.input.on('dragstart', function (pointer, obj) {

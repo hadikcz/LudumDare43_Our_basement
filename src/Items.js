@@ -17,9 +17,22 @@ export default {
             type: 'furniture',
             name: 'book',
             actionName: 'Take a',
-            isPickable: false,
+            emptyActionName: 'Pick up library',
+            isPickable: true,
             canTakePiece: true,
-            pieces: 15
+            pieces: 8,
+            generatePieceName: 'items/book',
+            fuel: 25,
+            sprites: [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8
+            ]
         },
         {
             id: 3,
@@ -29,7 +42,7 @@ export default {
             actionName: 'Pick up',
             isPickable: true,
             canTakePiece: false,
-            fuel: 5
+            fuel: 30
         },
         {
             id: 4,
@@ -39,7 +52,32 @@ export default {
             actionName: 'Pick up',
             isPickable: true,
             canTakePiece: false,
-            fuel: 2.5
+            fuel: 20
+        },
+        {
+            id: 5,
+            spriteKey: 'furniture/coal',
+            type: 'furniture',
+            name: 'coal',
+            actionName: 'Take some',
+            emptyActionName: 'No coal',
+            isPickable: false,
+            canTakePiece: true,
+            pieces: 10,
+            generatePieceName: 'items/coalPiece',
+            origin: [1, 1],
+            sprites: [
+                1,
+                1,
+                2,
+                2,
+                3,
+                3,
+                4,
+                4,
+                5,
+                5
+            ]
         },
 
         // items
@@ -51,9 +89,18 @@ export default {
             actionName: 'Pick up',
             isPickable: true,
             canTakePiece: false,
-            fuel: 1
+            fuel: 10
         },
-
+        {
+            id: 50,
+            spriteKey: 'items/coalPiece',
+            type: 'item',
+            name: 'coal',
+            actionName: 'Pick up',
+            isPickable: true,
+            canTakePiece: false,
+            fuel: 25
+        },
         // Triggers
         {
             id: 150,

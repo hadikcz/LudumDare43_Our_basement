@@ -4,6 +4,8 @@ import GameConfig from '../GameConfig';
 import Furniture from './../entities/Furniture';
 import Items from '../Items';
 import Trigger from "../entities/Trigger";
+import FurnitureWithPieaces from '../entities/FurnitureWithPieaces';
+
 export default class GameEnvironment {
     /**
      * @param {GameScene} scene
@@ -139,11 +141,24 @@ export default class GameEnvironment {
     }
 
     _createFurniture () {
-        // this.furniture = this.scene.add.image(0, 0, 'all', 'furniture/table');
+        // this.furniture = this.scene.add.image(50, 50, 'all', 'furniture/coal1');
+        // this.furniture.setOrigin(1, 1);
 
         this.furnitures.add(new Furniture(this.scene, 65, GameConfig.World.firstLevelY - 1, 'furniture/hazmat_wardrobe', Items.getItemBySpriteKey('furniture/hazmat_wardrobe')));
-        this.furnitures.add(new Furniture(this.scene, 90, GameConfig.World.firstLevelY - 1, 'furniture/library', Items.getItemBySpriteKey('furniture/library')));
+        this.library = new FurnitureWithPieaces(this.scene, 90, GameConfig.World.firstLevelY - 1, 'furniture/library', Items.getItemBySpriteKey('furniture/library'));
+        this.furnitures.add(this.library );
+
         this.furnitures.add(new Furniture(this.scene, 135, GameConfig.World.firstLevelY - 1, 'furniture/table', Items.getItemBySpriteKey('furniture/table')));
         this.furnitures.add(new Furniture(this.scene, 113, GameConfig.World.firstLevelY - 1, 'furniture/small_table', Items.getItemBySpriteKey('furniture/small_table')));
+
+        this.furnitures.add(new FurnitureWithPieaces(this.scene, 38, GameConfig.World.secondLevelY - 1, 'furniture/coal', Items.getItemBySpriteKey('furniture/coal')));
+    }
+
+    generatePieceOf (x, y, name) {
+        let piece = new Furniture(this.scene, x, y, name, Items.getItemBySpriteKey(name));
+        if (piece) {
+            this.furnitures.add(piece);
+        }
+        return piece;
     }
 }
