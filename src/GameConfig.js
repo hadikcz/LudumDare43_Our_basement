@@ -29,6 +29,12 @@ export default {
         TempatureStepNight: 0.15,
         LowestPointForTakeHealth: 12
     },
+    DayNight: {
+        NightStart: 19,
+        NightEnd: 6,
+        SunriseStartTime: 5,
+        SunsetStartTime: 18
+    },
     Characters: {
         MaxHealth: 150
     },

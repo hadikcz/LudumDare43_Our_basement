@@ -47,4 +47,14 @@ export default class PolygonHelpers {
         let cameraPoint = scene.cameras.main.midPoint;
         return Phaser.Math.Distance.Between(cameraPoint.x, cameraPoint.y, x, y) <= GameConfig.gameSize.height * 1.5;
     }
+
+    static calcVolume (x1, y1, x2, y2, baseVolume, maxDistance) {
+        if (baseVolume === undefined) {
+            baseVolume = 1;
+        }
+        let distance = Phaser.Math.Distance.Between(x1, y1, x2, y2);
+        console.log(distance);
+        let volume = Math.pow(baseVolume * (maxDistance - distance) / maxDistance, 3);
+        return volume > 0 ? volume : 0;
+    }
 }

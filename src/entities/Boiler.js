@@ -1,6 +1,7 @@
 import GameScene from '../scenes/GameScene.js';
 import GameItem from './GameItem';
 import Phaser from "phaser";
+import CameraHelpers from "../helpers/CameraHelpers";
 
 export default class Boiler extends GameItem {
     /**
@@ -9,7 +10,7 @@ export default class Boiler extends GameItem {
      * @param {number} y
      */
     constructor (scene, x, y) {
-        super(scene, x, y, 'furniture/boiler', { name: 'steam boiler', actionName: 'Add fuel to the' });
+        super(scene, x, y, 'furniture/boiler', {name: 'steam boiler', actionName: 'Add fuel to the'});
 
         this.scene.add.existing(this);
         /**
@@ -48,6 +49,18 @@ export default class Boiler extends GameItem {
             callbackScope: this,
             callback: this._boilerTick
         });
+
+        /**
+         * @type {Phaser.Sound.HTML5AudioSound}
+         */
+        this.boilerLoopSound = this.scene.sound.add('boilerLoop', {loop: true});
+        this.boilerLoopSound.play();
+
+
+        /**
+         * @type {Phaser.Sound.HTML5AudioSound}
+         */
+        this.throwSound = this.scene.sound.add('throw');
     }
 
     /**
@@ -63,6 +76,8 @@ export default class Boiler extends GameItem {
             this._boilerLightTween.resume();
             this._light.setVisible(true);
             this.lightSystem.turnOnAllLights();
+
+            // this.boilerLoopSound.setVolume(CameraHelpers.calcVolume(this.x, this.y, this.scene.character.x, this.scene.character.y, 0.1, 200));
         } else {
             this.setFrame('furniture/boiler_cold');
             this._boilerLightTween.pause();
@@ -75,6 +90,7 @@ export default class Boiler extends GameItem {
         if (nearestFuel) {
             this._fuel += nearestFuel.fuel;
             this._boilerTick(true);
+            this.throwSound.play();
             nearestFuel.destroy(); // in object create custom destroy method for clean self form that array. or use group
         }
     }
@@ -84,7 +100,11 @@ export default class Boiler extends GameItem {
             this._fuel = 0;
             this.stopFire();
         } else if (!skipTake) {
-            this._fuel -= 1;
+            if (this.scene.dayNightSystem.isDay()) {
+                this._fuel -= 1;
+            } else {
+                this._fuel -= 2;
+            }
         }
 
         if (this._fuel > 0 && !this._isFiring) {
@@ -94,10 +114,12 @@ export default class Boiler extends GameItem {
 
     startFire () {
         this._isFiring = true;
+        this.boilerLoopSound.play();
     }
 
     stopFire () {
         this._isFiring = false;
+        this.boilerLoopSound.stop();
     }
     //
     // toggleFire () {

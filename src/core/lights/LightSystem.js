@@ -1,7 +1,6 @@
 import GameScene from '../../scenes/GameScene';
 import Light from './Light';
 import BoilerLight from './BoilerLight';
-import NightLight from './NightLight';
 import GameConfig from "../../GameConfig";
 
 export default class LightSystem {

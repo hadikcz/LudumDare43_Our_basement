@@ -118,6 +118,21 @@ export default class Character extends Phaser.GameObjects.Sprite {
             callbackScope: this,
             callback: this._handleHealth
         });
+
+        /**
+         * @type {Phaser.Sound.HTML5AudioSound}
+         */
+        this.doorSound = this.scene.sound.add('door');
+
+        /**
+         * @type {Phaser.Sound.HTML5AudioSound}
+         */
+        this.takeSound = this.scene.sound.add('take');
+
+        /**
+         * @type {Phaser.Sound.HTML5AudioSound}
+         */
+        this.pickupSound = this.scene.sound.add('pickup');
     }
 
     preUpdate () {
@@ -162,7 +177,7 @@ export default class Character extends Phaser.GameObjects.Sprite {
     _handleHealth () {
         if (this._inside) {
             if (this.temperatureSystem.getTemperature() <= GameConfig.Temperature.LowestPointForTakeHealth) {
-                this._health += (this.temperatureSystem.getTemperature() - 13) / 10;
+                this._health += (this.temperatureSystem.getTemperature() - 13) / 10; // take
             } else {
                 this._health += this.temperatureSystem.getTemperature() / 10;
             }
@@ -248,12 +263,14 @@ export default class Character extends Phaser.GameObjects.Sprite {
                     this._interactLock = false;
                     this._lockControlls = false;
                     this._inside = false;
+                    this.doorSound.play();
                 }
             });
         }
         if (trigger.getTriggerName() === 'returnToShelter') {
             this._interactLock = true;
             this._lockControlls = true;
+            this.doorSound.play();
             this._inside = true;
             this.scene.tweens.add({
                 targets: this,
@@ -275,6 +292,7 @@ export default class Character extends Phaser.GameObjects.Sprite {
         if (gameItem.canPickUp() && !this._pickedItem) {
             this._pickedItem = gameItem;
             this._pickedItem.pickUp();
+            this.pickupSound.play();
         }
     }
 
@@ -285,6 +303,7 @@ export default class Character extends Phaser.GameObjects.Sprite {
                 console.log('Piece taken');
                 this._pickedItem = this.scene.gameEnvironment.generatePieceOf(this.x, this.y, gameItem.generatePieceName);
                 this._pickedItem.pickUp();
+                this.takeSound.play();
             }
         }
     }

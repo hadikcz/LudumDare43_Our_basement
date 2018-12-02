@@ -9,8 +9,8 @@ import GameConfig from './../GameConfig';
 import GameEnvironment from '../core/GameEnvironment';
 import LightSystem from './../core/lights/LightSystem';
 import UI from './../ui/UI';
-import NightLight from "../core/lights/NightLight";
 import TemperatureSystem from './../core/TemperatureSystem';
+import DayNightSystem from "../core/DayNightSystem";
 
 export default class GameScene extends Phaser.Scene {
     constructor () {
@@ -40,21 +40,13 @@ export default class GameScene extends Phaser.Scene {
 
         this.gameEnvironment = new GameEnvironment(this);
 
-        this.temperatureSystem = new TemperatureSystem(this);
+        this.dayNightSystem = new DayNightSystem(this);
+        this.temperatureSystem = new TemperatureSystem(this, this.dayNightSystem);
 
         this.character = new Character(this, 91, GameConfig.World.firstLevelY, 'man1');
         this.currentCharacter = this.character;
 
-        // let light = this.add.image(92, 123, 'light');
-        // light.setBlendMode(Phaser.BlendModes.LIGHTEN);
         this.controller = new Controller(this, this.character);
-
-        /**
-         * @type {NightLight}
-         * @private
-         */
-        // this._night = new NightLight(this, 1, 1);
-
         // draw object
         this.dragTarget = this.gameEnvironment.library;
         this.physics.world.enable(this.dragTarget);
@@ -70,7 +62,6 @@ export default class GameScene extends Phaser.Scene {
         this.input.on('dragend', function (pointer, obj) {
             obj.body.moves = true;
         });
-
 
         this._initDebugUI();
     }
@@ -91,10 +82,12 @@ export default class GameScene extends Phaser.Scene {
         var f11 = this.debugGui.addFolder('fire');
         f11.add(this.gameEnvironment._boiler, '_isFiring').listen();
         f11.add(this.gameEnvironment._boiler, '_fuel').listen();
+        f11.add(this.gameEnvironment._boiler.boilerLoopSound, 'volume').listen();
         f11.open();
 
         var f12 = this.debugGui.addFolder('Temperature');
         f12.add(this.temperatureSystem, '_temperature').listen();
+        f12.add(this.dayNightSystem, '_currentTime').listen();
         f12.open();
 
         var f13 = this.debugGui.addFolder('Player health');

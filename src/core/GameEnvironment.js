@@ -23,7 +23,7 @@ export default class GameEnvironment {
         this._walls = this.scene.add.group();
 
         this.scene.add.image(1, 1, 'surface').setOrigin(0, 0);
-        this.nightSurface = this.scene.add.sprite(1, 1, 'nightSurface').setOrigin(0, 0);
+        this.nightSurface = this.scene.add.sprite(1, 1, 'nightSurface').setOrigin(0, 0).setAlpha(0);
         this.scene.add.image(1, 78, 'spaceBetweenSurfaceAndBasement').setOrigin(0, 0).setDepth(GameConfig.DepthLayers.UpOnLights);
 
         /**
@@ -45,6 +45,27 @@ export default class GameEnvironment {
         this._createColliders();
         this._createFurniture();
         this._createTriggers();
+
+        this.scene.events.on('startSunrise', () => {
+            console.log('startSunrise');
+            this.scene.tweens.add({
+                targets: this.nightSurface,
+                alpha: 0,
+                duration: 15000,
+                ease: 'Linear'
+            });
+        });
+
+        this.scene.events.on('startSunset', () => {
+            console.log('startSunset');
+            this.scene.tweens.add({
+                targets: this.nightSurface,
+                alpha: 1,
+                duration: 15000,
+                ease: 'Linear'
+
+            });
+        });
     }
 
     update () {
