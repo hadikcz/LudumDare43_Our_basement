@@ -44,6 +44,11 @@ export default class GameEnvironment {
         this.triggers = this.scene.add.group();
 
         /**
+         * @type {Phaser.Sound.HTML5AudioSound}
+         */
+        this.kaselSound = this.scene.sound.add('kasel');
+
+        /**
          * @type {boolean}
          * @private
          */
@@ -79,6 +84,17 @@ export default class GameEnvironment {
             loop: true,
             callbackScope: this,
             callback: this._handleAirVent
+        });
+
+        this.scene.time.addEvent({
+            delay: 5000,
+            loop: true,
+            callbackScope: this,
+            callback: () => {
+                if (!this._isAirFilterOk) {
+                    this.kaselSound.play();
+                }
+            }
         });
     }
 
@@ -152,7 +168,7 @@ export default class GameEnvironment {
     }
 
     _handleAirVent () {
-        if (!Phaser.Math.RND.integerInRange(0, 1) && this._isAirFilterOk) {
+        if (!Phaser.Math.RND.integerInRange(0, 4) && this._isAirFilterOk) {
             this._isAirFilterOk = false;
             this.scene.events.emit('airFilterChangeState', this._isAirFilterOk);
         }

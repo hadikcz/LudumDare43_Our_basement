@@ -98,6 +98,13 @@ export default class Character extends Phaser.GameObjects.Sprite {
         this._health = GameConfig.Characters.MaxHealth;
 
         /**
+         *
+         * @type {boolean}
+         * @private
+         */
+        this._isDead = false;
+
+        /**
          * @type {boolean}
          * @private
          */
@@ -109,6 +116,7 @@ export default class Character extends Phaser.GameObjects.Sprite {
         this._overHeadText.setScale(0.25, 0.25);
 
         this.scene.events.on('interact', () => {
+            if (this._isDead) return;
             if (!this._isControllerByPlayer) return;
             if (this._pickedItem && (!this._currentNearestItem || this._currentNearestItem.constructor.name !== 'Trigger')) {
                 this._putDown();
@@ -140,9 +148,23 @@ export default class Character extends Phaser.GameObjects.Sprite {
          * @type {Phaser.Sound.HTML5AudioSound}
          */
         this.pickupSound = this.scene.sound.add('pickup');
+
+        /**
+         * @type {Phaser.Sound.HTML5AudioSound}
+         */
+        this.fixingVentSound = this.scene.sound.add('fixingVent');
+
+        /**
+         * @type {Phaser.Sound.HTML5AudioSound}
+         */
+        this.dieSound = this.scene.sound.add('die');
     }
 
     preUpdate () {
+        if (this._isDead) {
+            this._overHeadText.setVisible(false);
+            return;
+        }
         if (this._isControllerByPlayer) {
             this._overHeadText.setVisible(true);
             let nearestPickableItem = this.scene.gameEnvironment.findNearestInteractiveItem();
@@ -195,12 +217,30 @@ export default class Character extends Phaser.GameObjects.Sprite {
         return Math.round((this._health / GameConfig.Characters.MaxHealth) * 100);
     }
 
+    die () {
+        if (this.name === 'you') {
+            console.log('game over');
+        } else {
+            this._isDead = true;
+            this.dieSound.play();
+            this.setVisible(false);
+            setTimeout(() => {
+                this.destroy();
+            }, 3000);
+        }
+
+    }
+
     _handleHealth () {
+        if (this._isDead) return;
         if (this._inside) {
             if (this.temperatureSystem.getTemperature() <= GameConfig.Temperature.LowestPointForTakeHealth) {
                 this._health += (this.temperatureSystem.getTemperature() - 13) / 10; // take
             } else {
                 this._health += this.temperatureSystem.getTemperature() / 10;
+            }
+            if (!this.scene.gameEnvironment._isAirFilterOk) {
+                this._health -= 2;
             }
         } else {
             this._health -= 5; // if day + check hazmat
@@ -210,6 +250,10 @@ export default class Character extends Phaser.GameObjects.Sprite {
         }
 
         this.scene.events.emit('changedHealths', this);
+
+        if (this._health <= 0) {
+            this.die();
+        }
     }
 
     _redrawFacing () {
@@ -311,7 +355,7 @@ export default class Character extends Phaser.GameObjects.Sprite {
         if (trigger.getTriggerName() === 'fixAirFilter' && !this.scene.gameEnvironment._isAirFilterOk) {
             this._interactLock = true;
             this._lockControlls = true;
-            this.doorSound.play();
+            this.fixingVentSound.play();
             this.scene.time.addEvent({
                 delay: 5000,
                 callbackScope: this,

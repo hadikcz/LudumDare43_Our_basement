@@ -71,6 +71,10 @@ export default class CharacterManager {
 
         this.character = this._characters[this._position];
         this.character.setIsControllerByPlayer(true);
+
+        if (!this.character.visible) {
+            this._switchCharacter(); // prevent stay on death character
+        }
         this.scene.controller.setControlledCharacter(this.character);
         this.scene.events.emit('switchedCharacter', this.character);
     }
