@@ -5,53 +5,35 @@ This game was develop only for 48 hours into game jam Ludum Dare (compo) https:/
 
 ## [PLAY ON WEB!](https://hadikcz.github.io/LudumDare43_Our_shelter/build/)
 
-![Image of game](https://raw.githubusercontent.com/hadikcz/LudumDare41_Railgear/master/preview.gif)
+![Image of game](https://static.jam.vg/raw/225/z/1c997.png)
+![Image of game](https://static.jam.vg/raw/225/z/1c99f.png)
 
 # About game:
-My 5th LD entry. Your task is simple, drive metro train and keep schedule. Just drive metro, stop at station, open doors and wait. And repeat it
+My 5th LD entry. Your task is simple, survive in post nuclear war shelter. You and your family must survive, radioactive fallout in your shelter. Air filter are limited, fuel for steam generator is also limited. So after few days somebody froze to death and you will must solve that.
 
 # Out of time 
 (48 hour is not much, but I not want submit in JAM):
-* Sounds for game
-* Much more stations
-* NewYork map after that win ticket to hawai
-* Accident evets, suicide jumper, bomb in the train etc.
+* Characters animations
+* Working hazmat suits
+* Much more furniture
+* Expeditions for fuel
 
 
 # How to play ?
-![Image of game](https://raw.githubusercontent.com/hadikcz/LudumDare41_Railgear/master/screenshoots/help.png)
+- Keep boiler filled with fuel
+- Fix air filter on surface when it broke
+- Keep warm whole family
+- When somebody die game not end, but when you die, game over
+- Keep eye on UI, check characters health, air filter condition etc.
 
+# Controlls
+Right - D or Right arrow key
+Left - A or Left arrow key
+Switch character - Q
+Action/pick up - E or spacebar
 
+## Game has good ending but you must play, at least 15 minutes :) (Very interesting ending with exaplanation of that red light)
 
-# Upgrades:
-You have 3 upgrades with 3 levels.
-**Acceleration**:
-Train will be acceleration very quickly.
-* LEVEL 1 - 2x - $250
-* LEVEL 2 - 2.5x - $500
-* LEVEL 3 - 3.5x - $1000
+# Changelog
+- Few hours after COMPO ends I fixed not working pickable items, and enable disabled splash screen and final clean up of tons of test images from repository.
 
-
-
-**Max speed**:
-Limit of max speed
-- LEVEL 0 - 80 km/h
-* LEVEL 1 - 100 km/h - $250
-* LEVEL 2 - 120 km/h - $500
-* LEVEL 3 - 150 km/h - $1000
-
-**Breaks**:
-Limit of max speed
-* LEVEL 1 - 2x - $250
-* LEVEL 2 - 3x - $500
-* LEVEL 3 - 5x - $1000
-
-**Hawai ticket**:
-You will buy hotel and ticket to the Hawai and never return (WIN scenerio)
-Price: $10000
-
-Gameplay: https://youtu.be/TIdfBUCN_kg
-
-PLAY: https://hadikcz.github.io/LudumDare41_Railgear/index.html
-
-Source: https://github.com/hadikcz/LudumDare41_Railgear
