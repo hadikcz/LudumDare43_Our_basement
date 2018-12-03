@@ -17,7 +17,7 @@ export default class UI {
         this.temperatureText.setDepth(GameConfig.DepthLayers.Text);
         this.temperatureText.setScale(0.25, 0.25);
 
-        this.dayText = this.scene.add.text(5, 230, 'Day ???', { fontFamily: 'Verdana, Arial', fontSize: 25, color: '#FFFFFF' });
+        this.dayText = this.scene.add.text(5, 230, 'Day 431', { fontFamily: 'Verdana, Arial', fontSize: 25, color: '#FFFFFF' });
         this.dayText.setDepth(GameConfig.DepthLayers.Text);
         this.dayText.setScale(0.25, 0.25);
 

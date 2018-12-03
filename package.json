@@ -1,14 +1,13 @@
 {
-  "name": "paper_io",
-  "version": "0.2.0",
+  "name": "Our_shelter_ld43",
+  "version": "1.0.0",
   "description": "",
   "author": "Vladimír Novák <hadikcze@gmail.com>",
   "main": "index.js",
   "scripts": {
     "dev": "webpack --mode development --config webpack.config.js",
     "build": "webpack --config webpack.production.config.js",
-    "test": "mocha --require @babel/register",
-    "start-remote": "lt -s gamee2 --print-requests -p 3000"
+    "test": "mocha --require @babel/register"
   },
   "license": "MIT",
   "devDependencies": {

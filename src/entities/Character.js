@@ -118,7 +118,7 @@ export default class Character extends Phaser.GameObjects.Sprite {
         this.scene.events.on('interact', () => {
             if (this._isDead) return;
             if (!this._isControllerByPlayer) return;
-            if (this._pickedItem && (!this._currentNearestItem || this._currentNearestItem.constructor.name !== 'Trigger')) {
+            if (this._pickedItem && (!this._currentNearestItem || this._currentNearestItem.type !== 'Trigger')) {
                 this._putDown();
                 return;
             }
@@ -270,10 +270,7 @@ export default class Character extends Phaser.GameObjects.Sprite {
     }
 
     _handleInteract () {
-        if (this._currentNearestItem.constructor.name === 'Boiler') {
-            this._currentNearestItem.toggleFire();
-        }
-        if (this._currentNearestItem.constructor.name === 'FurnitureWithPieaces') {
+        if (this._currentNearestItem.type === 'FurnitureWithPieaces') {
             if (this._currentNearestItem.canTakePiece()) {
                 this._takePiece(this._currentNearestItem);
             } else if (this._currentNearestItem.isPickable) {
@@ -281,11 +278,11 @@ export default class Character extends Phaser.GameObjects.Sprite {
             }
         }
 
-        if (this._currentNearestItem.constructor.name === 'Furniture' && this._currentNearestItem.isPickable) {
+        if (this._currentNearestItem.type === 'Furniture' && this._currentNearestItem.isPickable) {
             this._pickUp(this._currentNearestItem);
         }
 
-        if (this._currentNearestItem.constructor.name === 'Trigger') {
+        if (this._currentNearestItem.type === 'Trigger') {
             this._handleTrigger();
         }
     }

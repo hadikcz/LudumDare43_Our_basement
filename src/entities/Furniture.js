@@ -12,6 +12,7 @@ export default class Furniture extends GameItem {
     constructor (scene, x, y, key, config) {
         super(scene, x, y, key, config);
 
+        this.type = 'Furniture';
         this.setDepth(GameConfig.DepthLayers.Furniture);
 
         /**

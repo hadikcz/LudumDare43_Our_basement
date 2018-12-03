@@ -14,6 +14,8 @@ export default class Boiler extends GameItem {
         super(scene, x, y, 'furniture/boiler', {name: 'steam boiler', actionName: 'Add fuel to the'});
 
         this.scene.add.existing(this);
+
+        this.type = 'Boiler';
         /**
          * @type {BoilerLight}
          * @private1

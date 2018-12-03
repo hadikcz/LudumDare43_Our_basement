@@ -14,6 +14,7 @@ export default class FurnitureWithPieaces extends Furniture {
         if (config.origin) {
             this.setOrigin(config.origin[0], config.origin[1]);
         }
+        this.type = 'FurnitureWithPieaces';
 
         this._redraw();
     }

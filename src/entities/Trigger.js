@@ -11,6 +11,7 @@ export default class Trigger extends GameItem {
     constructor (scene, x, y, triggerName, config) {
         super(scene, x, y, 'trigger', config);
 
+        this.type = 'Trigger';
         this.setVisible(false);
 
         /**
