@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack --mode development --config webpack.config.js",
-    "build-test": "npm run test && webpack --config webpack.production.config.js",
+    "build": "webpack --config webpack.production.config.js",
     "test": "mocha --require @babel/register",
     "start-remote": "lt -s gamee2 --print-requests -p 3000"
   },
