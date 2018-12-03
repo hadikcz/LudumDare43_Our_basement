@@ -83,19 +83,26 @@ export default class UI {
 
         this.scene.events.on('changedHealths', (/** @type {Character} */ character) => {
             let target;
+            let targetFace;
             if (character.name === 'you') {
                 target = this.youHp;
+                targetFace = this.faceYou;
             }
             if (character.name === 'wife') {
                 target = this.wifeHp;
+                targetFace = this.faceWife;
             }
             if (character.name === 'father') {
                 target = this.fatherHp;
+                targetFace = this.faceFather;
             }
             if (character.name === 'son') {
                 target = this.sonHp;
+                targetFace = this.faceSon;
             }
-
+            if (character.getHealthPercent() <= 0) {
+                targetFace.tint = 0xFF0000;
+            }
             target.setText(character.getHealthPercent() + '%');
         }, this);
 

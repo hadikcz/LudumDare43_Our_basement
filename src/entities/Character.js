@@ -219,7 +219,7 @@ export default class Character extends Phaser.GameObjects.Sprite {
 
     die () {
         if (this.name === 'you') {
-            console.log('game over');
+            this.scene.scene.start('GameOver');
         } else {
             this._health = 0;
             this._isDead = true;

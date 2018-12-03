@@ -2,6 +2,8 @@
 import Phaser from 'phaser';
 import BootScene from './scenes/BootScene';
 import GameScene from './scenes/GameScene';
+import NearAtlantaScene from './scenes/NearAtlantaScene';
+import EnableSoundScene from './scenes/EnableSoundScene';
 import GameConfig from './GameConfig.js';
 
 const config = {
@@ -24,7 +26,9 @@ const config = {
     antialias: true,
     scene: [
         BootScene,
-        GameScene
+        GameScene,
+        NearAtlantaScene,
+        EnableSoundScene
     ]
 };
 

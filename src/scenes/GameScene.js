@@ -68,6 +68,18 @@ export default class GameScene extends Phaser.Scene {
         this._initDebugUI();
 
         this.ui = new UI(this);
+
+
+        this.fadeRect = this.add.rectangle(0, 0, 1000, 1000, 0x000000, 1).setAlpha(1).setDepth(99999);
+        this.tweens.add({
+            targets: this.fadeRect,
+            alpha: 0,
+            duration: 1000,
+            ease: 'Linear',
+            onComplete: () => {
+                this.fadeRect.destroy();
+            }
+        });
     }
 
     update () {

@@ -18,7 +18,7 @@ export default class BootScene extends Phaser.Scene {
 
         this.load.on('complete', () => {
             progress.destroy();
-            this.scene.start('GameScene');
+            this.scene.start('EnableSoundScene');
         }, this);
         this.load.image('bg', 'assets/images/bg.png');
         this.load.image('light', 'assets/images/light.png');
@@ -39,5 +39,6 @@ export default class BootScene extends Phaser.Scene {
         this.load.audio('fixingVent', 'assets/sounds/fixingVent.mp3');
         this.load.audio('kasel', 'assets/sounds/kasel.mp3');
         this.load.audio('die', 'assets/sounds/die.mp3');
+        this.load.audio('gameInit', 'assets/sounds/gameInit.mp3');
     }
 }
