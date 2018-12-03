@@ -1,9 +1,9 @@
-# Our basement
+# Our shelter
 Ludum Dare 43
 
 This game was develop only for 48 hours into game jam Ludum Dare (compo) https://ldjam.com
 
-## [PLAY ON WEB!](https://hadikcz.github.io/LudumDare43_our_basement/index.html)
+## [PLAY ON WEB!](https://hadikcz.github.io/LudumDare43_Our_shelter/build/)
 
 ![Image of game](https://raw.githubusercontent.com/hadikcz/LudumDare41_Railgear/master/preview.gif)
 
