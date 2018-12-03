@@ -5,7 +5,7 @@ export default {
             id: 1,
             spriteKey: 'furniture/hazmat_wardrobe',
             type: 'furniture',
-            name: 'hazmat suit',
+            name: 'hazmat suit (lost key)',
             actionName: 'Take a',
             isPickable: false,
             canTakePiece: true,
@@ -22,7 +22,7 @@ export default {
             canTakePiece: true,
             pieces: 8,
             generatePieceName: 'items/book',
-            fuel: 25,
+            fuel: 35,
             sprites: [
                 1,
                 2,
@@ -42,7 +42,7 @@ export default {
             actionName: 'Pick up',
             isPickable: true,
             canTakePiece: false,
-            fuel: 30
+            fuel: 35
         },
         {
             id: 4,
@@ -52,7 +52,7 @@ export default {
             actionName: 'Pick up',
             isPickable: true,
             canTakePiece: false,
-            fuel: 20
+            fuel: 25
         },
         {
             id: 5,
@@ -89,7 +89,7 @@ export default {
             actionName: 'Pick up',
             isPickable: true,
             canTakePiece: false,
-            fuel: 10
+            fuel: 15
         },
         {
             id: 50,
@@ -99,7 +99,7 @@ export default {
             actionName: 'Pick up',
             isPickable: true,
             canTakePiece: false,
-            fuel: 25
+            fuel: 30
         },
         // Triggers
         {

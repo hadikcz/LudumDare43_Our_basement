@@ -243,7 +243,8 @@ export default class Character extends Phaser.GameObjects.Sprite {
                 this._health += this.temperatureSystem.getTemperature() / 10;
             }
             if (!this.scene.gameEnvironment._isAirFilterOk) {
-                this._health -= 2;
+                console.log('air filter not OK');
+                this._health -= 3;
             }
         } else {
             this._health -= 5; // if day + check hazmat
