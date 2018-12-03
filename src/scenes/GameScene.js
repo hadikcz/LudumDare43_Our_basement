@@ -68,7 +68,7 @@ export default class GameScene extends Phaser.Scene {
         //     obj.body.moves = true;
         // });
 
-        this._initDebugUI();
+        // this._initDebugUI();
 
         this.ui = new UI(this);
 
@@ -91,36 +91,36 @@ export default class GameScene extends Phaser.Scene {
         this.gameEnvironment.update();
     }
 
-    _initDebugUI () {
-        this.debugGui = new dat.GUI();
-
-        var f1 = this.debugGui.addFolder('Pointer position');
-        f1.add(this.input.activePointer, 'worldX').listen();
-        f1.add(this.input.activePointer, 'worldY').listen();
-        f1.open();
-
-        var f11 = this.debugGui.addFolder('fire');
-        f11.add(this.gameEnvironment._boiler, '_isFiring').listen();
-        f11.add(this.gameEnvironment._boiler, '_fuel').listen();
-        f11.add(this.gameEnvironment._boiler.boilerLoopSound, 'volume').listen();
-        f11.open();
-
-        var f12 = this.debugGui.addFolder('Temperature');
-        f12.add(this.temperatureSystem, '_temperature').listen();
-        f12.add(this.dayNightSystem, '_currentTime').listen();
-        f12.open();
-
-        var f13 = this.debugGui.addFolder('Player health');
-        f13.add(this.characterManager.character, '_health').listen();
-        f13.open();
-
-        if (this.dragTarget !== undefined) {
-            var f2 = this.debugGui.addFolder('Selcted');
-            f2.add(this.dragTarget, 'x').step(1).listen();
-            f2.add(this.dragTarget, 'y').step(1).listen();
-            f2.open();
-        }
-    }
+    // _initDebugUI () {
+    //     this.debugGui = new dat.GUI();
+    //
+    //     var f1 = this.debugGui.addFolder('Pointer position');
+    //     f1.add(this.input.activePointer, 'worldX').listen();
+    //     f1.add(this.input.activePointer, 'worldY').listen();
+    //     f1.open();
+    //
+    //     var f11 = this.debugGui.addFolder('fire');
+    //     f11.add(this.gameEnvironment._boiler, '_isFiring').listen();
+    //     f11.add(this.gameEnvironment._boiler, '_fuel').listen();
+    //     f11.add(this.gameEnvironment._boiler.boilerLoopSound, 'volume').listen();
+    //     f11.open();
+    //
+    //     var f12 = this.debugGui.addFolder('Temperature');
+    //     f12.add(this.temperatureSystem, '_temperature').listen();
+    //     f12.add(this.dayNightSystem, '_currentTime').listen();
+    //     f12.open();
+    //
+    //     var f13 = this.debugGui.addFolder('Player health');
+    //     f13.add(this.characterManager.character, '_health').listen();
+    //     f13.open();
+    //
+    //     if (this.dragTarget !== undefined) {
+    //         var f2 = this.debugGui.addFolder('Selcted');
+    //         f2.add(this.dragTarget, 'x').step(1).listen();
+    //         f2.add(this.dragTarget, 'y').step(1).listen();
+    //         f2.open();
+    //     }
+    // }
 
     _startGameOver () {
         let circle = this.add.circle(168, 20, 1, 0xAA0000, 0.1);
