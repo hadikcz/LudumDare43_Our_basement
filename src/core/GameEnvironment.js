@@ -69,13 +69,13 @@ export default class GameEnvironment {
     }
 
     update () {
-        this.scene.physics.collide(this._walls, this.scene.character);
+        this.scene.physics.collide(this._walls, this.scene.characterManager.character);
     }
 
     /**
      * @return {Furniture|Boiler|GameItem|null}
      */
-    findNearestInteractiveItem (target = this.scene.character) {
+    findNearestInteractiveItem (target = this.scene.characterManager.character) {
         if (Phaser.Math.Distance.Between(this._boiler.x, this._boiler.y, target.x, target.y) < GameConfig.MinimalInteractiveDistance) {
             return this._boiler;
         }
@@ -95,7 +95,7 @@ export default class GameEnvironment {
         return this.findNearestPickableItem(target);
     }
 
-    findNearestFurniture (target = this.scene.character, onlyBurnable = false) {
+    findNearestFurniture (target = this.scene.characterManager.character, onlyBurnable = false) {
         let nearest = null;
         let nearestDistance = Infinity;
         this.furnitures.getChildren().forEach((furniture) => {
@@ -112,7 +112,7 @@ export default class GameEnvironment {
     }
 
     findNearestTrigger () {
-        let target = this.scene.character;
+        let target = this.scene.characterManager.character;
         let nearest = null;
         let nearestDistance = Infinity;
         this.triggers.getChildren().forEach((trigger) => {
@@ -125,7 +125,7 @@ export default class GameEnvironment {
         return nearest;
     }
 
-    findNearestPickableItem (target = this.scene.character) {
+    findNearestPickableItem (target = this.scene.characterManager.character) {
         // method for looking to items array when I create books, coal and so on.
         return null;
     }

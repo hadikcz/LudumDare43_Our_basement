@@ -10,8 +10,9 @@ export default class Character extends Phaser.GameObjects.Sprite {
      * @param {number} x
      * @param {number} y
      * @param {string} characterId
+     * @param {string} name
      */
-    constructor (scene, x, y, characterId) {
+    constructor (scene, x, y, characterId, name) {
         let key = Character.getCharacterKey(characterId);
         super(scene, x, y, 'all', key);
 
@@ -32,6 +33,11 @@ export default class Character extends Phaser.GameObjects.Sprite {
         this.body.maxVelocity.y = 0;
 
         this.body.setDragX(250);
+
+        /**
+         * @type {string}
+         */
+        this.name = name;
 
         /**
          * @type {number}
@@ -59,7 +65,7 @@ export default class Character extends Phaser.GameObjects.Sprite {
          * @type {boolean}
          * @private
          */
-        this._isControllerByPlayer = true;
+        this._isControllerByPlayer = false;
 
         /**
          * @type {Furniture|Boiler|GameItem}
@@ -103,6 +109,7 @@ export default class Character extends Phaser.GameObjects.Sprite {
         this._overHeadText.setScale(0.25, 0.25);
 
         this.scene.events.on('interact', () => {
+            if (!this._isControllerByPlayer) return;
             if (this._pickedItem && (!this._currentNearestItem || this._currentNearestItem.constructor.name !== 'Trigger')) {
                 this._putDown();
                 return;
@@ -158,6 +165,13 @@ export default class Character extends Phaser.GameObjects.Sprite {
             this._pickedItem.setPosition(this.x, this.y - 10);
         }
         this._overHeadText.setPosition(this.x, this.y);
+    }
+
+    /**
+     * @param {boolean} isControlled
+     */
+    setIsControllerByPlayer (isControlled) {
+        this._isControllerByPlayer = isControlled;
     }
 
     /**

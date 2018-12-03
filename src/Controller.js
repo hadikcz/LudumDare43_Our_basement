@@ -1,9 +1,8 @@
 export default class Controller {
     /**
      * @param {GameScene} scene
-     * @param {Character} targetCharacterToControll
      */
-    constructor (scene, targetCharacterToControll) {
+    constructor (scene) {
 
         /**
          * @type {GameScene}
@@ -13,7 +12,7 @@ export default class Controller {
         /**
          * @type {Character} targetCharacterToControl
          */
-        this._targetCharacterToControl = targetCharacterToControll;
+        this._targetCharacterToControl = null;
 
         /**
          * @type {{jump: Phaser.Input.Keyboard.Key, jump2: Phaser.Input.Keyboard.Key, fire: Phaser.Input.Keyboard.Key, left: Phaser.Input.Keyboard.Key, right: Phaser.Input.Keyboard.Key, down: Phaser.Input.Keyboard.Key}}
@@ -28,13 +27,34 @@ export default class Controller {
             down: this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN),
             down2: this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S),
             action: this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE),
-            action2: this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E)
+            action2: this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E),
+            switchCharacter: this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Q)
         };
 
         this._lockInteract = false;
+
+        this._lockSwitchCharacter = false;
+    }
+
+    /**
+     * @param {Character} character
+     */
+    setControlledCharacter (character) {
+        this._targetCharacterToControl = character;
     }
 
     update () {
+        if (!this._targetCharacterToControl) return;
+
+        if (this.keys.switchCharacter.isDown && !this._lockSwitchCharacter) {
+            this._lockSwitchCharacter = true;
+            this.scene.events.emit('switchCharacter');
+            setTimeout(() => {
+                try {
+                    this._lockSwitchCharacter = false;
+                } catch (e) {console.log(e);}
+            }, 200);
+        }
         if (this._targetCharacterToControl._lockControlls) return;
 
         if (this.keys.left.isDown || this.keys.left2.isDown) {

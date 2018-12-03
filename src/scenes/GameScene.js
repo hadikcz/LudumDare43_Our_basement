@@ -11,6 +11,7 @@ import LightSystem from './../core/lights/LightSystem';
 import UI from './../ui/UI';
 import TemperatureSystem from './../core/TemperatureSystem';
 import DayNightSystem from "../core/DayNightSystem";
+import CharacterManager from "../core/CharacterManager";
 
 export default class GameScene extends Phaser.Scene {
     constructor () {
@@ -43,10 +44,11 @@ export default class GameScene extends Phaser.Scene {
         this.dayNightSystem = new DayNightSystem(this);
         this.temperatureSystem = new TemperatureSystem(this, this.dayNightSystem);
 
-        this.character = new Character(this, 91, GameConfig.World.firstLevelY, 'man1');
-        this.currentCharacter = this.character;
+        this.controller = new Controller(this);
 
-        this.controller = new Controller(this, this.character);
+        this.character = null;
+        this.characterManager = new CharacterManager(this, this.character);
+
         // draw object
         this.dragTarget = this.gameEnvironment.library;
         this.physics.world.enable(this.dragTarget);
@@ -93,7 +95,7 @@ export default class GameScene extends Phaser.Scene {
         f12.open();
 
         var f13 = this.debugGui.addFolder('Player health');
-        f13.add(this.character, '_health').listen();
+        f13.add(this.characterManager.character, '_health').listen();
         f13.open();
 
         if (this.dragTarget !== undefined) {
