@@ -206,17 +206,24 @@ export default class GameEnvironment {
     }
 
     _createFurniture () {
-        // this.furniture = this.scene.add.image(50, 50, 'all', 'furniture/coal1');
+        // this.furniture = this.scene.add.image(50, 50, 'all', 'furniture/small_table');
         // this.furniture.setOrigin(1, 1);
 
         this.furnitures.add(new Furniture(this.scene, 65, GameConfig.World.firstLevelY - 1, 'furniture/hazmat_wardrobe', Items.getItemBySpriteKey('furniture/hazmat_wardrobe')));
-        this.library = new FurnitureWithPieaces(this.scene, 90, GameConfig.World.firstLevelY - 1, 'furniture/library', Items.getItemBySpriteKey('furniture/library'));
-        this.furnitures.add(this.library );
+        this.furnitures.add(new FurnitureWithPieaces(this.scene, 90, GameConfig.World.firstLevelY - 1, 'furniture/library', Items.getItemBySpriteKey('furniture/library')));
 
         this.furnitures.add(new Furniture(this.scene, 135, GameConfig.World.firstLevelY - 1, 'furniture/table', Items.getItemBySpriteKey('furniture/table')));
         this.furnitures.add(new Furniture(this.scene, 113, GameConfig.World.firstLevelY - 1, 'furniture/small_table', Items.getItemBySpriteKey('furniture/small_table')));
 
         this.furnitures.add(new FurnitureWithPieaces(this.scene, 38, GameConfig.World.secondLevelY - 1, 'furniture/coal', Items.getItemBySpriteKey('furniture/coal')));
+
+        //another
+        this.furnitures.add(new Furniture(this.scene, 272, GameConfig.World.secondLevelY - 1, 'furniture/small_table', Items.getItemBySpriteKey('furniture/small_table')));
+        this.furnitures.add(new FurnitureWithPieaces(this.scene, 300, GameConfig.World.secondLevelY - 1, 'furniture/library', Items.getItemBySpriteKey('furniture/library')));
+        this.furnitures.add(new Furniture(this.scene, 252, GameConfig.World.firstLevelY - 1, 'furniture/table', Items.getItemBySpriteKey('furniture/table')));
+        this.furnitures.add(new Furniture(this.scene, 119, GameConfig.World.secondLevelY - 1, 'furniture/libraryEmpty', Items.getItemBySpriteKey('furniture/library')));
+        this.furnitures.add(new Furniture(this.scene, 77, GameConfig.World.secondLevelY - 1, 'furniture/small_table', Items.getItemBySpriteKey('furniture/small_table')));
+
     }
 
     generatePieceOf (x, y, name) {

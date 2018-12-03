@@ -221,6 +221,7 @@ export default class Character extends Phaser.GameObjects.Sprite {
         if (this.name === 'you') {
             console.log('game over');
         } else {
+            this._health = 0;
             this._isDead = true;
             this.dieSound.play();
             this.setVisible(false);
@@ -228,7 +229,6 @@ export default class Character extends Phaser.GameObjects.Sprite {
                 this.destroy();
             }, 3000);
         }
-
     }
 
     _handleHealth () {

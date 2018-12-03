@@ -50,20 +50,20 @@ export default class GameScene extends Phaser.Scene {
         this.characterManager = new CharacterManager(this, this.character);
 
         // draw object
-        this.dragTarget = this.gameEnvironment.library;
-        this.physics.world.enable(this.dragTarget);
-        this.input.setDraggable(this.dragTarget.setInteractive());
-        this.input.on('dragstart', function (pointer, obj) {
-            obj.body.moves = false;
-        });
-
-        this.input.on('drag', function (pointer, obj, dragX, dragY) {
-            obj.setPosition(dragX, dragY);
-        });
-
-        this.input.on('dragend', function (pointer, obj) {
-            obj.body.moves = true;
-        });
+        // this.dragTarget = this.gameEnvironment.furniture;
+        // this.physics.world.enable(this.dragTarget);
+        // this.input.setDraggable(this.dragTarget.setInteractive());
+        // this.input.on('dragstart', function (pointer, obj) {
+        //     obj.body.moves = false;
+        // });
+        //
+        // this.input.on('drag', function (pointer, obj, dragX, dragY) {
+        //     obj.setPosition(dragX, dragY);
+        // });
+        //
+        // this.input.on('dragend', function (pointer, obj) {
+        //     obj.body.moves = true;
+        // });
 
         this._initDebugUI();
 
