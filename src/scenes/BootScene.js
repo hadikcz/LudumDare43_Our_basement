@@ -18,7 +18,9 @@ export default class BootScene extends Phaser.Scene {
 
         this.load.on('complete', () => {
             progress.destroy();
+            // this.scene.start('GameOverScene');
             this.scene.start('EnableSoundScene');
+            // this.scene.start('GameOverLostScene');
         }, this);
         this.load.image('bg', 'assets/images/bg.png');
         this.load.image('light', 'assets/images/light.png');
@@ -40,5 +42,6 @@ export default class BootScene extends Phaser.Scene {
         this.load.audio('kasel', 'assets/sounds/kasel.mp3');
         this.load.audio('die', 'assets/sounds/die.mp3');
         this.load.audio('gameInit', 'assets/sounds/gameInit.mp3');
+        this.load.audio('gameOver', 'assets/sounds/gameOver.mp3');
     }
 }

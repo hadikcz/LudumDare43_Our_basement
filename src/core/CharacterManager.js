@@ -1,9 +1,8 @@
 import GameScene from '../scenes/GameScene';
-import GameConfig from "../GameConfig";
+import GameConfig from '../GameConfig';
 import Character from '../entities/Character.js';
 
 export default class CharacterManager {
-
     /**
      * @param {GameScene} scene
      * @param {Character} character
@@ -39,6 +38,17 @@ export default class CharacterManager {
      */
     getCharacters () {
         return this._characters;
+    }
+
+    getAliveCharacterCount () {
+        let count = 0;
+        this._characters.forEach((character) => {
+            if (!character.isDead) {
+                count++;
+            }
+        });
+
+        return count;
     }
 
     _createCharacters () {

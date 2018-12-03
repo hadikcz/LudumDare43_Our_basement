@@ -219,7 +219,9 @@ export default class Character extends Phaser.GameObjects.Sprite {
 
     die () {
         if (this.name === 'you') {
-            this.scene.scene.start('GameOver');
+            window.charactersCount = this.scene.characterManager.getAliveCharacterCount();
+            this.dieSound.play();
+            this.scene.scene.start('GameOverLostScene');
         } else {
             this._health = 0;
             this._isDead = true;
@@ -232,6 +234,7 @@ export default class Character extends Phaser.GameObjects.Sprite {
     }
 
     _handleHealth () {
+        if (this.scene.gameOver) return;
         if (this._isDead) return;
         if (this._inside) {
             if (this.temperatureSystem.getTemperature() <= GameConfig.Temperature.LowestPointForTakeHealth) {

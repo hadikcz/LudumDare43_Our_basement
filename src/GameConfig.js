@@ -14,6 +14,8 @@ export default {
     Boiler: {
         maxCapacity: 50
     },
+    DayStart: 432,
+    DayEnd: 441, // 441
     DepthLayers: {
         Surface: 1,
         Furniture: 4,

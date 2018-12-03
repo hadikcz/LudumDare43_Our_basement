@@ -91,7 +91,7 @@ export default class GameEnvironment {
             loop: true,
             callbackScope: this,
             callback: () => {
-                if (!this._isAirFilterOk) {
+                if (!this._isAirFilterOk && !this.scene.gameOver) {
                     this.kaselSound.play();
                 }
             }

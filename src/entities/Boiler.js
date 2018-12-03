@@ -63,6 +63,11 @@ export default class Boiler extends GameItem {
         this.throwSound = this.scene.sound.add('throw');
     }
 
+    stop () {
+        this._fuel = 0;
+        this.boilerLoopSound.stop();
+    }
+
     /**
      * @return {boolean}
      */

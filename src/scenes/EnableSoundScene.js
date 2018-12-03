@@ -9,13 +9,12 @@ export default class EnableSoundScene extends Phaser.Scene {
     }
 
     create () {
-        this.text = this.add.text(GameConfig.World.width / 2, GameConfig.World.height / 2, '', { fontFamily: 'Verdana, Arial', fontSize: 25, color: '#FFFFFF' });
+        this.text = this.add.text((GameConfig.World.width / 2) - 100, GameConfig.World.height / 2, '', { fontFamily: 'Verdana, Arial', fontSize: 25, color: '#FFFFFF' });
         this.text.setText([
-            'Please enable sound and use headphones',
-            'for better mood'
+            'Please enable sound and use headphones for better mood'
         ]);
 
-        this.fadeRect = this.add.rectangle(0, 0, 1500, 1500, 0x000000, 1).setAlpha(0);
+        this.fadeRect = this.add.rectangle(0, 0, 2000, 2000, 0x000000, 1).setAlpha(0);
         setTimeout(() => {
             this.tweens.add({
                 targets: this.fadeRect,

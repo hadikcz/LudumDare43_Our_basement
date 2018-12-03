@@ -43,6 +43,15 @@ export default class DayNightSystem {
          * @type {Phaser.Sound.BaseSound}
          */
         this.sunriseSound = this.scene.sound.add('sunrise');
+
+        this.gameOver = false;
+
+        this.scene.events.on('changeDay', (day) => {
+            if (day === GameConfig.DayEnd) {
+                this.gameOver = true;
+                this.scene._startGameOver();
+            }
+        }, this);
     }
 
     /**
@@ -64,11 +73,14 @@ export default class DayNightSystem {
      * @private
      */
     _update () {
+        if (this.gameOver) return;
+
         this._currentTime += 0.1;
         this._currentTime = parseFloat(this._currentTime.toFixed(1));
         if (this._currentTime > 24) {
             this._currentTime = 0;
             this.day++;
+            window.day = this.day;
             this.scene.events.emit('changeDay', this.day);
         }
 

@@ -4,6 +4,8 @@ import BootScene from './scenes/BootScene';
 import GameScene from './scenes/GameScene';
 import NearAtlantaScene from './scenes/NearAtlantaScene';
 import EnableSoundScene from './scenes/EnableSoundScene';
+import GameOverLostScene from './scenes/GameOverLostScene';
+import GameOverScene from './scenes/GameOverScene';
 import GameConfig from './GameConfig.js';
 
 const config = {
@@ -28,7 +30,9 @@ const config = {
         BootScene,
         GameScene,
         NearAtlantaScene,
-        EnableSoundScene
+        EnableSoundScene,
+        GameOverLostScene,
+        GameOverScene
     ]
 };
 

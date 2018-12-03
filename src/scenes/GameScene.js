@@ -10,8 +10,8 @@ import GameEnvironment from '../core/GameEnvironment';
 import LightSystem from './../core/lights/LightSystem';
 import UI from './../ui/UI';
 import TemperatureSystem from './../core/TemperatureSystem';
-import DayNightSystem from "../core/DayNightSystem";
-import CharacterManager from "../core/CharacterManager";
+import DayNightSystem from '../core/DayNightSystem';
+import CharacterManager from '../core/CharacterManager';
 
 export default class GameScene extends Phaser.Scene {
     constructor () {
@@ -25,6 +25,9 @@ export default class GameScene extends Phaser.Scene {
          * @type {UI}
          */
         this.ui = null;
+
+
+        this.gameOver = false;
     }
 
     create () {
@@ -69,7 +72,6 @@ export default class GameScene extends Phaser.Scene {
 
         this.ui = new UI(this);
 
-
         this.fadeRect = this.add.rectangle(0, 0, 1000, 1000, 0x000000, 1).setAlpha(1).setDepth(99999);
         this.tweens.add({
             targets: this.fadeRect,
@@ -80,6 +82,8 @@ export default class GameScene extends Phaser.Scene {
                 this.fadeRect.destroy();
             }
         });
+
+        // this._startGameOver();
     }
 
     update () {
@@ -116,5 +120,27 @@ export default class GameScene extends Phaser.Scene {
             f2.add(this.dragTarget, 'y').step(1).listen();
             f2.open();
         }
+    }
+
+    _startGameOver () {
+        let circle = this.add.circle(168, 20, 1, 0xAA0000, 0.1);
+        circle.setDepth(99999);
+        this.sound.add('gameOver').play();
+        setTimeout(() => {
+            this.tweens.add({
+                targets: circle,
+                radius: 400,
+                fillAlpha: 1,
+                duration: 14000,
+                ease: 'Sine.easeIn',
+                onComplete: () => {
+                    this.gameOver = true;
+                    this.gameEnvironment._boiler._fuel = 0;
+                    this.gameEnvironment._boiler.stop();
+                    this.scene.stop('GameScene');
+                    this.scene.start('GameOverScene');
+                }
+            });
+        }, 8000);
     }
 }
