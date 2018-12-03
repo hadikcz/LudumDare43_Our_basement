@@ -5,6 +5,7 @@ import Furniture from './../entities/Furniture';
 import Items from '../Items';
 import Trigger from "../entities/Trigger";
 import FurnitureWithPieaces from '../entities/FurnitureWithPieaces';
+import Phaser from "phaser";
 
 export default class GameEnvironment {
     /**
@@ -42,6 +43,12 @@ export default class GameEnvironment {
          */
         this.triggers = this.scene.add.group();
 
+        /**
+         * @type {boolean}
+         * @private
+         */
+        this._isAirFilterOk = true;
+
         this._createColliders();
         this._createFurniture();
         this._createTriggers();
@@ -66,10 +73,19 @@ export default class GameEnvironment {
 
             });
         });
+
+        this.scene.time.addEvent({
+            delay: 15000,
+            loop: true,
+            callbackScope: this,
+            callback: this._handleAirVent
+        });
     }
 
     update () {
-        this.scene.physics.collide(this._walls, this.scene.characterManager.character);
+        this.scene.characterManager.getCharacters().forEach((character) => {
+            this.scene.physics.collide(this._walls, character);
+        });
     }
 
     /**
@@ -128,6 +144,18 @@ export default class GameEnvironment {
     findNearestPickableItem (target = this.scene.characterManager.character) {
         // method for looking to items array when I create books, coal and so on.
         return null;
+    }
+
+    fixAirFilter () {
+        this._isAirFilterOk = true;
+        this.scene.events.emit('airFilterChangeState', this._isAirFilterOk);
+    }
+
+    _handleAirVent () {
+        if (!Phaser.Math.RND.integerInRange(0, 1) && this._isAirFilterOk) {
+            this._isAirFilterOk = false;
+            this.scene.events.emit('airFilterChangeState', this._isAirFilterOk);
+        }
     }
 
     /**

@@ -188,6 +188,13 @@ export default class Character extends Phaser.GameObjects.Sprite {
         }
     }
 
+    /**
+     * @return {number}
+     */
+    getHealthPercent () {
+        return Math.round((this._health / GameConfig.Characters.MaxHealth) * 100);
+    }
+
     _handleHealth () {
         if (this._inside) {
             if (this.temperatureSystem.getTemperature() <= GameConfig.Temperature.LowestPointForTakeHealth) {
@@ -201,6 +208,8 @@ export default class Character extends Phaser.GameObjects.Sprite {
         if (this._health > GameConfig.Characters.MaxHealth) {
             this._health = GameConfig.Characters.MaxHealth;
         }
+
+        this.scene.events.emit('changedHealths', this);
     }
 
     _redrawFacing () {
@@ -295,6 +304,21 @@ export default class Character extends Phaser.GameObjects.Sprite {
                     this._interactLock = false;
                     this._lockControlls = false;
                     this._inside = true;
+                }
+            });
+        }
+
+        if (trigger.getTriggerName() === 'fixAirFilter' && !this.scene.gameEnvironment._isAirFilterOk) {
+            this._interactLock = true;
+            this._lockControlls = true;
+            this.doorSound.play();
+            this.scene.time.addEvent({
+                delay: 5000,
+                callbackScope: this,
+                callback: () => {
+                    this.scene.gameEnvironment.fixAirFilter();
+                    this._interactLock = false;
+                    this._lockControlls = false;
                 }
             });
         }

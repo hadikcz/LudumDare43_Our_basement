@@ -34,6 +34,13 @@ export default class CharacterManager {
         this.scene.events.on('switchCharacter', this._switchCharacter, this);
     }
 
+    /**
+     * @return {Character[]}
+     */
+    getCharacters () {
+        return this._characters;
+    }
+
     _createCharacters () {
         let spawn = this._getRandomSpawn();
         this._characters.push(new Character(this.scene, spawn.x, spawn.y, 'man1', 'you'));
@@ -77,7 +84,7 @@ export default class CharacterManager {
         } else {
             return {
                 x: Phaser.Math.RND.integerInRange(53, 300),
-                y: GameConfig.World.firstLevelY
+                y: GameConfig.World.secondLevelY
             };
         }
     }
